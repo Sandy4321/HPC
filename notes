@@ -1,0 +1,24 @@
+Our goal:
+train a model to predict the final state of a job
+
+About feature:
+off line features: configuration related
+on line features:  running process related
+
+Two-stage:
+1. off line job clustering and model training
+2. on line job failure prediction
+
+Feature vector:
+job_f = [userID, logical_job_name, scheduling_class, priority, num_tasks, different_machines_rest, requested_cpu, requested_memory, requested_disk, early_cpu_usage_avg, early_memory_usage_avg, early_IO_usage_avg, early_cpu_usage_CoV, early_memory_usage_CoV, early_IO_usage_CoV, TaskFailFlag, AttemptFailFlag, PastAttemptsFlag]
+
+Current problem:
+The datasets are isolated with each other. how to connect them together.
+
+Solution:
+Extract data of NameID and LogNameID in job_events datasets to task_events datasets
+Resort task_events data by dictionary order {JobId, TaskIdInThisJob, TimeStamp}
+
+
+
+
